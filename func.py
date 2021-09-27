@@ -19,8 +19,8 @@ def start(update, context):
 
     try:
         TG_ID = TG_ID[0][0]
-        if TG_ID== 574596333:
-            id = 574596333
+        if TG_ID== 957531477:
+            id = 957531477
             context.bot.send_message(chat_id=id, text='Здраствуйте Авазбек, я ваш персональный бот для продвижения вашего бизнеса.\n Я вам буду вам отправлять анкету людей желающих ходить к вашим курсам по английскому языку.')
             sleep(1)
             context.bot.send_message(chat_id=id, text=' Вы также можете отправлять пользоватнлям бота картинки с описанием или файлы с описаниям')
@@ -90,11 +90,13 @@ def next_func(update, context):
            name = name[0][0]
            b = [KeyboardButton(text=dct[lang_][4], request_contact=True)]
 
+
            context.bot.send_message(chat_id=user_id, text=dct[lang_][2].format(name),
                     reply_markup=ReplyKeyboardMarkup([b], resize_keyboard=True))
            sleep(1)
            cur.execute(stagee.format('{}', user_id).format(5))
            connect.commit()
+
 
 
     except Exception:
@@ -177,7 +179,7 @@ def uz(update, context):
     connect.commit()
     level_ = cur.execute(select_level.format(user_id)).fetchall()
     level_ = level_[0][0]
-    conn.commit()
+    connect.commit()
 
 def biginner(update, context):
     user_id = update.callback_query.from_user.id
